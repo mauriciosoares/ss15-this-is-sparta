@@ -21,7 +21,7 @@
     <div class="l-form-container">
       <div class="l-form">
 
-        <p class="call">hello! in are the pear programming, a platform for developers who want to share experience with pear programming</p>
+        <p class="call">hello! in are the Pear programming, a platform for developers who want to share experience with pair programming</p>
         <p class="call-form">let's go have fun with us, create a room</p>
         <form action="#" id="create">
           <input type="text" class="form-input form-input-name" name="subject" placeholder="Room Name">
@@ -54,15 +54,15 @@
       </a>
     </div>
     <div class="room-users">
-      <i class="fa fa-user"></i>
-      <span class="logged-users"><%= users %></span>
+      <ul class="clear-list room-users-list">
+        <% if (hasPassword) { %>
+          <li class="inline-block"><i class="fa fa-lock"></i></span> </li>
+        <% } %>
+        <li class="inline-block"><i class="fa fa-eye"></i></li>
+        <li class="inline-block"><i class="fa fa-user"></i> <span class="logged-users"><%= users %></span> </li>
+      </ul>
     </div>
-    <a class="room-enter" href="javascript:void(0)">entrar</a>
 
-    <%= subject %> 
-    <% if (hasPassword) { %>
-      - <%= password %>
-    <% } %>
   </script>
 
   <script src="js/roomElement.js"></script>
