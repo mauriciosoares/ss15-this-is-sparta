@@ -15,34 +15,17 @@
     this.reference = this.firebase.child(this.options.reference);
 
     this.elements = {};
-    this.elements.$roomsEl = $(this.options.roomsEl);
-    this.elements.$formEl = $(this.options.formEl);
+    this.elements.$rooms = $(this.options.roomsEl);
+    this.elements.$form = $(this.options.formEl);
   };
 
   RoomManager.prototype.bind = function () {
-    this.firebase.on('child_added', function () {
-      console.log('on add');
-    });
-
-    this.elements.$formEl.on('submit', this.onSubmit.bind(this));
-  };
-
-  RoomManager.prototype.onSubmit = function (event) {
-    event && event.preventDefault();
-
-    var subject = this.getValue('subject'),
-        password = this.getValue('password') || null;
-
-    if (!_.isUndefined(subject)) {
-      this.creteRoom({
-        subject: subject,
-        password: password
-      });
-    }
+    this.firebase.on('child_added', this.onAddRoom.bind(this));
+    this.elements.$form.on('submit', this.onSubmit.bind(this));
   };
 
   RoomManager.prototype.getValue = function (name) {
-    var value = this.elements.$formEl.find('[name="' + name + '"]')
+    var value = this.elements.$form.find('[name="' + name + '"]')
       .val()
       .trim();
 
@@ -60,6 +43,30 @@
       subject: data.subject,
       password: data.password
     });
+  };
+
+  RoomManager.prototype.onSubmit = function (event) {
+    event && event.preventDefault();
+
+    var subject = this.getValue('subject'),
+        password = this.getValue('password') || null;
+
+    if (!_.isUndefined(subject)) {
+      this.creteRoom({
+        subject: subject,
+        password: password
+      });
+    }
+  };
+
+  RoomManager.prototype.onAddRoom = function (subject) {
+    console.log(subject);
+
+    var room = $('<li />', {
+      text: subject.val().subject + '  ' + subject.val().password
+    });
+
+    this.elements.$rooms.append(room);
   };
 
   root.RoomManager = RoomManager;
