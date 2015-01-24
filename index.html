@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <title>This is Sparta!</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
 
 <body>
+
   <div class="l-wrapper">
     <div class="l-header-container">
       <div class="l-header header">
@@ -34,32 +36,49 @@
       <div class="l-content">
 
         <ul id="rooms" class="rooms">
-          <li>
-            <div class="room-name">Usando backbone.js para criar nosso programa.</div>
-            <div class="room-users">
-              <i class="user"></i>
-              <span class="logged-users">2</span>
-            </div>
-            <a class="room-enter" href="javascript:void(0)">entrar</a>
-          </li>
-
-          <li>
-            <div class="room-name">Validacoes de formulario usando html 5</div>
-            <div class="room-users">
-              <i class="user"></i>
-              <span class="logged-users">10</span>
-            </div>
-            <a class="room-enter" href="javascript:void(0)">entrar</a>
-          </li>
         </ul>
 
       </div>
     </div>
 
   </div>
+
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
+
+  <script id="room-element" type="text/template">
+    <div class="room-name">
+      <a href="#">
+        <%= subject %>
+      </a>
+    </div>
+    <div class="room-users">
+      <i class="fa fa-user"></i>
+      <span class="logged-users"><%= users %></span>
+    </div>
+    <a class="room-enter" href="javascript:void(0)">entrar</a>
+
+    <%= subject %> 
+    <% if (hasPassword) { %>
+      - <%= password %>
+    <% } %>
+  </script>
+
+  <script src="js/roomElement.js"></script>
+  <script src="js/roomManager.js"></script>
+  <script type="text/javascript">
+
+    (function () {
+      new RoomManager({
+        roomsEl: '#rooms',
+        formEl: '#create',
+        connection: 'https://ss15-this-is-sparta.firebaseio.com/',
+        reference: 'rooms'
+      });
+    }())
+  
+  </script>
 
 </body>
 </html>
