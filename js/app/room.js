@@ -90,8 +90,12 @@
   Room.prototype.getWebRTC = function() {
     var configs = {};
     configs.localVideoEl = (!this.watch) ? this.options.videoEl : null;
-    configs.autoRequestMedia = !this.watch;
-    configs.detectSpeakingEvents = !this.watch;
+    configs.autoRequestMedia = true;
+    configs.detectSpeakingEvents = true;
+    configs.media = {
+      video: !this.watch,
+      audio: !this.watch
+    }
 
     return new SimpleWebRTC(configs);
   };
@@ -130,6 +134,7 @@
     editor.session.setMode(this.options.editor.mode);
     editor.setOptions(this.options.editor.options);
     editor.$blockScrolling = this.options.editor.$blockScrolling;
+    editor.setShowPrintMargin(false);
 
     this.editor = editor;
   };
@@ -142,8 +147,6 @@
     room = watch[0];
 
     this.watch = (watch[1] === '');
-
-    console.log(this.watch);
 
     if(!room) {
       this.redirect();
