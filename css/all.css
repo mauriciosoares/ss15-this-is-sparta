@@ -16,9 +16,30 @@ body {
 
 .l-form-container {
   background: #354242;
-  padding: 70px 0 70px 0;
+  padding: 90px 0 90px 0;
   text-align: center;
   color: #fff;
+}
+
+.form-input {
+  color: #7D9100;
+  border: 1px solid #7D9100;
+  padding: 7px;
+}
+
+.form-input-name {
+  width: 340px;
+  margin-right: 5px;
+}
+
+.form-buttom {
+  background: #C9DE55;
+  border: 1px solid #7D9100;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  color: #7D9100;
+  margin-left: 6px;
 }
 
 .header {
