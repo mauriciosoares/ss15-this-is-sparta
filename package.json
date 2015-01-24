@@ -8,5 +8,8 @@
     "Mauricio Soares <msoares2603@gmail.com>",
     "Alan Mesquita de Sousa <alan.mdesousa@gmail.com>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }

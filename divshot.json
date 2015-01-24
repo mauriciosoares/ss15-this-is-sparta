@@ -1,6 +1,6 @@
 {
-  "name": "this-is-sparta",
+  "name": "ss15-this-is-sparta",
   "root": "./",
-  "clean_urls": true,
+  "clean_urls": false,
   "error_page": "error.html"
 }
