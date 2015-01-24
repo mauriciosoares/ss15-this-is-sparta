@@ -19,8 +19,8 @@
   <div id="editor"></div>
 
   <!-- load external libs -->
-  <!-- <script src="https://nightwing.github.io/emmet-core/emmet.js"></script> -->
-  <!-- <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script> -->
+  <script src="https://nightwing.github.io/emmet-core/emmet.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 
   <!-- load local libs -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -43,7 +43,7 @@
   <script>
     (function() {
       new App.Room({
-        conn: 'https://ss15-this-is-sparta.firebaseio.com/code',
+        conn: 'https://pairwith.firebaseio.com/rooms/',
         editor: {
           el: 'editor',
           theme: 'ace/theme/monokai',
