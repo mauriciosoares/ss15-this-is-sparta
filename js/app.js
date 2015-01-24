@@ -30,16 +30,19 @@
   RoomManager.prototype.onSubmit = function (event) {
     event && event.preventDefault();
 
-    var subject = this.getSubject();
+    var subject = this.getValue('subject');
 
-    console.log('yesssssssssssssssssssssssssssssss', subject);
+
+    this.firebase.push({
+      subject: subject,
+      password: null
+    });
   };
 
-  RoomManager.prototype.getSubject = function () {
-    var name = 'subject',
-      value = this.elements.$formEl.find('[name="' + name + '"]')
-        .val()
-        .trim();
+  RoomManager.prototype.getValue = function (name) {
+    var value = this.elements.$formEl.find('[name="' + name + '"]')
+      .val()
+      .trim();
 
     this.clearValue(name);
 
