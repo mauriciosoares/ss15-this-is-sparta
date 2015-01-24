@@ -60,13 +60,15 @@
   };
 
   RoomManager.prototype.onAddRoom = function (subject) {
-    console.log(subject);
+    var values = subject.val(),
+        room;
 
-    var room = $('<li />', {
-      text: subject.val().subject + '  ' + subject.val().password
+    room = new RoomElement({
+      subject: values.subject,
+      hasPassword: !values.password
     });
 
-    this.elements.$rooms.append(room);
+    this.elements.$rooms.append(room.el);
   };
 
   root.RoomManager = RoomManager;
