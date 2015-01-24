@@ -43,9 +43,9 @@ npm-debug.log
 
 
 ### Bower ###
-bower_components
-.bower-cache
-.bower-registry
-.bower-tmp
+# bower_components
+# .bower-cache
+# .bower-registry
+# .bower-tmp
 
 .divshot-cache/
