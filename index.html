@@ -3,17 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>This is Sparta!</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
+
 <body>
-  <ul id="rooms"></ul>
+  <div class="l-wrapper">
+    <div class="l-header-container">
+      <div class="l-header header">
+        <h1>Paer Machine</h1>
+      </div>
+    </div>
 
-  <h2>Criar Sala</h2>
-  <form action="#" id="create">
-    <input type="text" name="subject" placeholder="Room Name">
-    <input type="text" name="password" placeholder="Room Password (optional)">
-    <input type="submit" value="criar">
-  </form>
+    <div class="l-form-container">
+      <div class="l-form">
 
+        <h2>Criar Sala</h2>
+        <form action="#" id="create">
+          <input type="text" name="subject" placeholder="Room Name">
+          <input type="text" name="password" placeholder="Room Password (optional)">
+          <input type="submit" value="criar">
+        </form>
+
+      </div>
+    </div>
+
+    <div class="l-content-container">
+      <div class="l-content">
+
+        <ul id="rooms" class="rooms">
+          <li>
+            <div class="name">teste</div>
+            <span class="logged-users">2</span>
+            <a href="javascript:void(0)">entrar</a>
+            <a href="javascript:void(0)">entrar</a>
+          </li>
+          <li>
+            <div class="name">teste</div>
+            <span class="logged-users">2</span>
+            <a href="javascript:void(0)">entrar</a>
+            <a href="javascript:void(0)">entrar</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
