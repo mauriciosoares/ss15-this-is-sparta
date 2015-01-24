@@ -26,7 +26,33 @@
   Room.prototype.bind = function() {
     this.fb.on('value', this.fbUpdateValue.bind(this));
 
+    this.webRTC = this.getWebRTC();
+    this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
+    this.webRTC.on('videoAdded', this.onVideoAdded.bind(this));
+
     this.aceInput.addEventListener('keyup', this.onAceKeyup.bind(this));
+  };
+
+  Room.prototype.onReadyToCall = function() {
+    if(this.room) this.webRTC.joinRoom(this.room);
+  };
+
+  Room.prototype.onVideoAdded = function(video, peer) {
+    var videoContainer = document.createElement('div');
+    videoContainer.classList.add('videos-video');
+    videoContainer.id = 'video_' + this.webRTC.getDomId(peer);
+    videoContainer.appendChild(video);
+
+    this.sharedVideosEl.appendChild(videoContainer);
+  };
+
+  Room.prototype.getWebRTC = function() {
+    var configs = {};
+    configs.localVideoEl = this.options.videoEl;
+    configs.autoRequestMedia = true;
+    configs.detectSpeakingEvents = true;
+
+    return new SimpleWebRTC(configs);
   };
 
   Room.prototype.fbUpdateValue = function(data) {
