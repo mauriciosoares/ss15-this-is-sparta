@@ -34,8 +34,7 @@
         password = this.getValue('password') || null;
 
     if (!_.isUndefined(subject)) {
-
-      this.firebase.push({
+      this.creteRoom({
         subject: subject,
         password: password
       });
@@ -54,6 +53,13 @@
 
   RoomManager.prototype.clearValue = function (name) {
     $('[name="' + name+ '"]').val('');
+  };
+
+  RoomManager.prototype.creteRoom = function (data) {
+    this.firebase.push({
+      subject: data.subject,
+      password: data.password
+    });
   };
 
   root.RoomManager = RoomManager;
