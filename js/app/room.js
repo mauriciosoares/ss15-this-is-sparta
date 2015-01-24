@@ -29,6 +29,7 @@
     this.webRTC = this.getWebRTC();
     this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
     this.webRTC.on('videoAdded', this.onVideoAdded.bind(this));
+    this.webRTC.on('videoRemoved', this.onVideoRemoved.bind(this));
 
     this.aceInput.addEventListener('keyup', this.onAceKeyup.bind(this));
   };
@@ -44,6 +45,11 @@
     videoContainer.appendChild(video);
 
     this.sharedVideosEl.appendChild(videoContainer);
+  };
+
+  Room.prototype.onVideoRemoved = function(video, peer) {
+    var videoToRemove = document.getElementById('video_' + this.webRTC.getDomId(peer));
+    videoToRemove.parentNode.removeChild(videoToRemove);
   };
 
   Room.prototype.getWebRTC = function() {
