@@ -1,0 +1,22 @@
+{
+  "name": "this-is-sparta",
+  "version": "0.0.0",
+  "authors": [
+    "Weslley Araujo <weslleyaraujo20@gmail.com>",
+    "Mauricio Soares <msoares2603@gmail.com>",
+    "Alan Mesquita de Sousa <alan.mdesousa@gmail.com>"
+  ],
+  "description": "Our app is awesome",
+  "keywords": [
+    "Awesome",
+    "app"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

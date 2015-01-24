@@ -1,0 +1,12 @@
+{
+  "name": "this-is-sparta",
+  "version": "0.0.0",
+  "description": "Our app is awesome",
+  "main": "index.js",
+  "authors": [
+    "Weslley Araujo <weslleyaraujo20@gmail.com>",
+    "Mauricio Soares <msoares2603@gmail.com>",
+    "Alan Mesquita de Sousa <alan.mdesousa@gmail.com>"
+  ],
+  "license": "MIT"
+}
