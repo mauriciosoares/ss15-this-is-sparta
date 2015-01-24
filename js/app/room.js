@@ -6,6 +6,7 @@
 
   function Room(options) {
     this.options = options;
+    this.position = {};
     this.editor;
 
     this.prepare();
@@ -27,7 +28,7 @@
   };
 
   Room.prototype.onAceKeyup = function() {
-    console.log(this.editor.getValue());
+    this.position = this.editor.getCursorPosition();
   };
 
   Room.prototype.configEditor = function() {
