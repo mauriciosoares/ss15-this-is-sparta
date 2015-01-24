@@ -1,15 +1,16 @@
 ;(function (root, $) {
+
   var defaults = {
-  
+
   };
 
-  function App (options) {
+  function RoomManager (options) {
     this.options = _.extend({}, defaults, options);
     this.prepare();
     this.bind();
   }
 
-  App.prototype.prepare = function () {
+  RoomManager.prototype.prepare = function () {
     this.firebase = new Firebase(this.options.connection);
     this.reference = this.firebase.child(this.options.reference);
 
@@ -18,7 +19,7 @@
     this.elements.$formEl = $(this.options.formEl);
   };
 
-  App.prototype.bind = function () {
+  RoomManager.prototype.bind = function () {
     this.firebase.on('child_added', function () {
       console.log('on add');
     });
@@ -26,14 +27,15 @@
     this.elements.$formEl.on('submit', this.onSubmit.bind(this));
   };
 
-  App.prototype.onSubmit = function (event) {
-    event.preventDefault();
+  RoomManager.prototype.onSubmit = function (event) {
+    event && event.preventDefault();
 
     var subject = this.getSubject();
-    console.log('yeeeeeeeeessssssssssss', subject);
+
+    console.log('yesssssssssssssssssssssssssssssss', subject);
   };
 
-  App.prototype.getSubject = function () {
+  RoomManager.prototype.getSubject = function () {
     var name = 'subject',
       value = this.elements.$formEl.find('[name="' + name + '"]')
         .val()
@@ -44,10 +46,10 @@
     return value;
   };
 
-  App.prototype.clearValue = function (name) {
+  RoomManager.prototype.clearValue = function (name) {
     $('[name="' + name+ '"]').val('');
   };
 
-  root.App = App;
+  root.RoomManager = RoomManager;
 
 } (window, jQuery));
