@@ -40,7 +40,16 @@
     (function() {
       new App.Room({
         editor: {
-          el: 'editor'
+          el: 'editor',
+          theme: 'ace/theme/monokai',
+          mode: 'ace/mode/html',
+          input: '.ace_text-input',
+          $blockScrolling: Infinity,
+          options: {
+            scrollPastEnd: true,
+            autoScrollEditorIntoView: true,
+            enableEmmet: true
+          }
         }
       });
     } ());
