@@ -12,6 +12,7 @@
   }
 
   Room.prototype.prepare = function() {
+    this.room = this.getRoom();
 
     this.configEditor();
   };
@@ -25,6 +26,16 @@
     editor.$blockScrolling = this.options.editor.$blockScrolling;
 
     this.editor = editor;
+  };
+
+  Room.prototype.getRoom = function() {
+    var room = location.search && location.search.split('?')[1];
+
+    if(!room) {
+      window.location = '/';
+    }
+
+    return room;
   };
 
   root.Room = Room;
