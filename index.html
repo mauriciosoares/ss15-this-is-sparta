@@ -19,7 +19,10 @@
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 
   <script id="room-element" type="text/template">
-    <%= subject %>
+    <%= subject %> 
+    <% if (hasPassword) { %>
+      - <%= password %>
+    <% } %>
   </script>
 
   <script src="js/roomElement.js"></script>

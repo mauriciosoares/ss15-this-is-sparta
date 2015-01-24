@@ -65,8 +65,10 @@
 
     room = new RoomElement({
       subject: values.subject,
-      hasPassword: !values.password,
-      template: '#room-element'
+      hasPassword: !!values.password,
+      password: values.password,
+      template: '#room-element',
+      userReference: this.firebase.child(subject.key()).child('users')
     });
 
     this.elements.$rooms.append(room.el);
