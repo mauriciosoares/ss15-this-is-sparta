@@ -24,7 +24,14 @@
   };
 
   Room.prototype.bind = function() {
+    this.fb.on('value', this.fbValue.bind(this));
+
     this.aceInput.addEventListener('keyup', this.onAceKeyup.bind(this));
+  };
+
+  Room.prototype.fbValue = function(data) {
+    this.editor.setValue(data.val().code);
+    this.editor.gotoLine(this.position.row + 1 || 1, this.position.column || 0);
   };
 
   Room.prototype.onAceKeyup = function() {
