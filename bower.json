@@ -18,5 +18,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.3"
+  }
 }
