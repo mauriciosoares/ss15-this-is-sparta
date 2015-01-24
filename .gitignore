@@ -48,3 +48,4 @@ bower_components
 .bower-registry
 .bower-tmp
 
+.divshot-cache/
