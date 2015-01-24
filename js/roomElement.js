@@ -1,7 +1,7 @@
 ;(function (root, $) {
 
   var defaults = {
-
+    users: 0
   };
 
   function RoomElement (options) {
@@ -23,17 +23,17 @@
   };
 
   RoomElement.prototype.bind = function () {
-    this.options.usersRef.on('child_added', this.onUserAdd.bind(this));
-    this.options.usersRef.on('child_removed', this.onUserRemoved.bind(this));
+    this.options.usersReference.on('child_added', this.onUserAdd.bind(this));
+    this.options.usersReference.on('child_removed', this.onUserRemoved.bind(this));
   };
 
   RoomElement.prototype.onUserAdd = function () {
-    this.users++;
+    this.options.users++;
     console.log('user add on room');
   };
 
   RoomElement.prototype.onUserRemoved = function () {
-    this.users--;
+    this.options.users--;
     console.log('user removed from the room');
   };
 

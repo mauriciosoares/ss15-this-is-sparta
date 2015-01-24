@@ -68,11 +68,17 @@
       hasPassword: !!values.password,
       password: values.password,
       template: '#room-element',
-      userReference: this.firebase.child(subject.key()).child('users')
+      usersReference: this.getUserReference(subject.key())
     });
 
     this.elements.$rooms.append(room.el);
 
+  };
+
+  RoomManager.prototype.getUserReference = function (key) {
+    try {
+      return this.firebase.child(key).child('users');
+    } catch (e) {}
   };
 
   root.RoomManager = RoomManager;
