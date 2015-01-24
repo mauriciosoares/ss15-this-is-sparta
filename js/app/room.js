@@ -16,6 +16,11 @@
     this.room = this.getRoom();
     this.fb = new Firebase(this.options.conn + this.room);
 
+    this.sharedVideosEl = document.querySelector(this.options.sharedVideosEl);
+    this.runBt = $(this.options.runBt);
+    this.showCodeBt = $('.show-code');
+    this.closeCodeBt = $('.closecode-bt');
+
     this.configEditor();
     this.aceInput = document.querySelector(this.options.editor.input);
 
@@ -32,10 +37,39 @@
     this.webRTC.on('videoRemoved', this.onVideoRemoved.bind(this));
 
     this.aceInput.addEventListener('keyup', this.onAceKeyup.bind(this));
+
+    this.runBt.on('click', this.updateIframe.bind(this));
+    this.showCodeBt.on('click', this.showCode.bind(this));
+    this.closeCodeBt.on('click', this.closeCode.bind(this));
+  };
+
+  Room.prototype.updateIframe = function() {
+    if(document.querySelector('#run iframe')) {
+      document.getElementById('run').removeChild(document.querySelector('#run iframe'));
+    }
+    var iframe, html;
+    iframe = document.createElement('iframe');
+    html = this.editor.getValue();
+
+    iframe.id = 'run';
+    iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
+
+    document.getElementById('run').appendChild(iframe);
   };
 
   Room.prototype.onReadyToCall = function() {
     if(this.room) this.webRTC.joinRoom(this.room);
+  };
+
+  Room.prototype.showCode = function() {
+    this.updateIframe();
+    setTimeout(function() {
+      $('body').addClass('is-showcode');
+    }.bind(this), 100);
+  };
+
+  Room.prototype.closeCode = function() {
+    $('body').removeClass('is-showcode');
   };
 
   Room.prototype.onVideoAdded = function(video, peer) {
