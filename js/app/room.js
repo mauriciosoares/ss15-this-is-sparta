@@ -7,6 +7,7 @@
   function Room(options) {
     this.options = options;
     this.position = {};
+    this.watch = false;
     this.editor;
 
     this.prepare();
@@ -129,7 +130,15 @@
   };
 
   Room.prototype.getRoom = function() {
-    var room = location.search && location.search.split('?')[1];
+    var room = location.search && location.search.split('?')[1],
+      watch;
+
+    watch = room.split('===watch');
+    room = watch[0];
+
+    this.watch = (watch[1] === '');
+
+    console.log(this.watch);
 
     if(!room) {
       window.location = '/';
