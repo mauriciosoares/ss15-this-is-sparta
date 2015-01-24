@@ -29,6 +29,10 @@
 
   Room.prototype.onAceKeyup = function() {
     this.position = this.editor.getCursorPosition();
+
+    this.fb.update({
+      code: this.editor.getValue()
+    });
   };
 
   Room.prototype.configEditor = function() {
