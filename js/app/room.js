@@ -24,12 +24,21 @@
   };
 
   Room.prototype.bind = function() {
-    this.fb.on('value', this.fbValue.bind(this));
+    this.fb.on('value', this.fbUpdateValue.bind(this));
 
     this.aceInput.addEventListener('keyup', this.onAceKeyup.bind(this));
   };
 
-  Room.prototype.fbValue = function(data) {
+  Room.prototype.fbUpdateValue = function(data) {
+    if(data.val().password) {
+      var password = prompt('This room requires password:', 'Put the password here');
+    }
+
+    if(password != data.val().password) {
+      alert('Sorry, wrong password, you\'ll be redirected to the Rooms list');
+      window.location = '/';
+    }
+
     this.editor.setValue(data.val().code);
     this.editor.gotoLine(this.position.row + 1 || 1, this.position.column || 0);
   };
