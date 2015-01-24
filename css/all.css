@@ -9,17 +9,31 @@ body {
 }
 
 .l-header-container {
-  background: #424242;
-  color: #FBF7E4;
+  background: #C9DE55;
+  color: #354242;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .l-form-container {
-  background: #8E001C;
-  padding: 0 0 40px 0;
+  background: #354242;
+  padding: 70px 0 70px 0;
+  text-align: center;
+  color: #fff;
 }
 
 .header {
   overflow: hidden;
+}
+
+.call {
+  font-size: 25px;
+  width: 610px;
+  margin: 0 auto;
+  margin: 0 auto 67px auto;
+}
+
+.call-form {
+  font-size: 22px;
 }
 
 .rooms {
@@ -29,6 +43,39 @@ body {
 }
 
 .rooms > li {
-  background: red;
+  margin-bottom: 15px;
+  padding: 16px;
+  background: #C9DE55;
+  position: relative;
+  overflow: hidden;
 }
 
+.room-users {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.user {
+  background: url("user.png");
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.logged-users {
+  font-size: 13px;
+  vertical-align: text-top;
+}
+
+.room-name {
+  width: 80%;
+  color: #7D9100;
+}
+
+.room-enter {
+  float: right;
+  margin-top: 6px;
+  color: #354242;
+  text-decoration: none;
+}
