@@ -65,12 +65,12 @@ body {
 
 .logged-users {
   font-size: 13px;
-  vertical-align: text-top;
 }
 
-.room-name {
+.room-name a {
   width: 80%;
   color: #7D9100;
+  text-decoration: none;
 }
 
 .room-enter {
@@ -78,4 +78,16 @@ body {
   margin-top: 6px;
   color: #354242;
   text-decoration: none;
+}
+
+.room-users-list li {
+  margin: 0 5px;
+}
+
+.clear-list {
+  list-style-type: none;
+}
+
+.inline-block {
+  display: inline-block;
 }
