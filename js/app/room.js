@@ -13,6 +13,7 @@
 
   Room.prototype.prepare = function() {
     this.room = this.getRoom();
+    this.fb = new Firebase(this.options.conn + this.room);
 
     this.configEditor();
   };
