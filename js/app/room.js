@@ -1,7 +1,7 @@
-(function(room, $) {
+(function(root, $) {
 
   var defaults = {
-    editor: {};
+    editor: {}
   };
 
   function Room(options) {
@@ -18,5 +18,7 @@
   Room.prototype.configEditor = function() {
     var editor = ace.edit(this.options.editor.el);
   };
+
+  root.Room = Room;
 
 } (window.App, jQuery));
