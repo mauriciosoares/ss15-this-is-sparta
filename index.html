@@ -3,27 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>This is Sparta!</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
-<body>
-  <h2>Create Room</h2>
-  <form action="#" id="create">
-    <input type="text" name="subject" placeholder="Room Name" required>
-    <input type="text" name="password" placeholder="Room Password (optional)">
-    <input type="submit" value="Create">
-  </form>
 
-  <ul id="rooms"></ul>
+<body>
+
+  <div class="l-wrapper">
+    <div class="l-header-container">
+      <div class="l-header header">
+        <h1>Paer Machine</h1>
+      </div>
+    </div>
+
+    <div class="l-form-container">
+      <div class="l-form">
+
+        <p class="call">hello! in are the pear programming, a platform for developers who want to share experience with pear programming</p>
+        <p class="call-form">let's go have fun with us, create a room</p>
+        <form action="#" id="create">
+          <input type="text" name="subject" placeholder="Room Name">
+          <input type="text" name="password" placeholder="Room Password (optional)">
+          <input type="submit" value="criar">
+        </form>
+
+      </div>
+    </div>
+
+    <div class="l-content-container">
+      <div class="l-content">
+
+        <ul id="rooms" class="rooms">
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
 
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 
   <script id="room-element" type="text/template">
+    <div class="room-name">
+      <a href="#">
+        <%= subject %>
+      </a>
+    </div>
+    <div class="room-users">
+      <i class="user"></i>
+      <span class="logged-users"><%= users %></span>
+    </div>
+    <a class="room-enter" href="javascript:void(0)">entrar</a>
+
     <%= subject %> 
     <% if (hasPassword) { %>
       - <%= password %>
     <% } %>
-    - <%= users %>
   </script>
 
   <script src="js/roomElement.js"></script>
