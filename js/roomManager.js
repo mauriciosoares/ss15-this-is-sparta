@@ -65,10 +65,12 @@
 
     room = new RoomElement({
       subject: values.subject,
-      hasPassword: !values.password
+      hasPassword: !values.password,
+      template: '#room-element'
     });
 
     this.elements.$rooms.append(room.el);
+
   };
 
   root.RoomManager = RoomManager;
