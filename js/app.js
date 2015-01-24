@@ -29,7 +29,23 @@
   App.prototype.onSubmit = function (event) {
     event.preventDefault();
 
-    console.log('on submit');
+    var subject = this.getSubject();
+    console.log('yeeeeeeeeessssssssssss', subject);
+  };
+
+  App.prototype.getSubject = function () {
+    var name = 'subject',
+      value = this.elements.$formEl.find('[name="' + name + '"]')
+        .val()
+        .trim();
+
+    this.clearValue(name);
+
+    return value;
+  };
+
+  App.prototype.clearValue = function (name) {
+    $('[name="' + name+ '"]').val('');
   };
 
   root.App = App;
