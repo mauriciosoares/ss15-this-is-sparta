@@ -30,13 +30,16 @@
   RoomManager.prototype.onSubmit = function (event) {
     event && event.preventDefault();
 
-    var subject = this.getValue('subject');
+    var subject = this.getValue('subject'),
+        password = this.getValue('password') || null;
 
+    if (!_.isUndefined(subject)) {
 
-    this.firebase.push({
-      subject: subject,
-      password: null
-    });
+      this.firebase.push({
+        subject: subject,
+        password: password
+      });
+    }
   };
 
   RoomManager.prototype.getValue = function (name) {
