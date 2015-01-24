@@ -89,24 +89,29 @@
 
   Room.prototype.getWebRTC = function() {
     var configs = {};
-    configs.localVideoEl = this.options.videoEl;
-    configs.autoRequestMedia = true;
-    configs.detectSpeakingEvents = true;
+    configs.localVideoEl = (!this.watch) ? this.options.videoEl : null;
+    configs.autoRequestMedia = !this.watch;
+    configs.detectSpeakingEvents = !this.watch;
 
     return new SimpleWebRTC(configs);
   };
 
   Room.prototype.fbUpdateValue = function(data) {
-    if(data.val().password) {
-      var password = prompt('This room requires password:', 'Put the password here');
+    var val = data.val();
+    if(!val)   {
+      this.redirect();
     }
 
-    if(password != data.val().password) {
+    if(val.password) {
+      var password = prompt('This room requires password:', 'Insert the password here');
+    }
+
+    if(password != val.password) {
       alert('Sorry, wrong password, you\'ll be redirected to the Rooms list');
-      window.location = '/';
+      this.redirect();
     }
 
-    this.editor.setValue(data.val().code);
+    this.editor.setValue(val.code);
     this.editor.gotoLine(this.position.row + 1 || 1, this.position.column || 0);
   };
 
@@ -141,10 +146,14 @@
     console.log(this.watch);
 
     if(!room) {
-      window.location = '/';
+      this.redirect();
     }
 
     return room;
+  };
+
+  Room.prototype.redirect = function() {
+    window.location = '/';
   };
 
   root.Room = Room;
