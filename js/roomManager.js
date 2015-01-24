@@ -39,7 +39,7 @@
   };
 
   RoomManager.prototype.creteRoom = function (data) {
-    this.firebase.push({
+    return this.firebase.push({
       subject: data.subject,
       password: data.password
     });
@@ -49,14 +49,21 @@
     event && event.preventDefault();
 
     var subject = this.getValue('subject'),
-        password = this.getValue('password') || null;
+        password = this.getValue('password') || null,
+        response;
 
     if (!_.isUndefined(subject)) {
-      this.creteRoom({
+      response = this.creteRoom({
         subject: subject,
         password: password
       });
+
+      this.goToRoom(response.key());
     }
+  };
+
+  RoomManager.prototype.goToRoom = function (roomId) {
+    window.location = 'room.html?' + roomId;
   };
 
   RoomManager.prototype.onAddRoom = function (subject) {
