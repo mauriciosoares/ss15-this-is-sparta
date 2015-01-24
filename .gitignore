@@ -49,3 +49,4 @@ bower_components
 .bower-tmp
 
 .divshot-cache/
+.DS_Store
