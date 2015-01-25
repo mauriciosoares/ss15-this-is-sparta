@@ -11,6 +11,7 @@
 
   function RoomManager (options) {
     this.options = _.extend({}, defaults, options);
+    this.rooms = [];
     this.prepare();
     this.bind();
   }
@@ -116,9 +117,19 @@
     });
 
     this.elements.$rooms.find(this.options.loader).remove();
-    this.elements.$rooms.append(room.el);
+    this.rooms.push(room.el);
+    this.renderAllRooms();
 
     this.filter();
+  };
+
+  RoomManager.prototype.renderAllRooms = function() {
+    var rooms = this.rooms.slice();
+    rooms.reverse();
+    rooms.forEach(function(e) {
+
+      this.elements.$rooms.append(e);
+    }.bind(this));
   };
 
   RoomManager.prototype.getReference = function (key, reference) {
