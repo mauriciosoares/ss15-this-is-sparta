@@ -59,7 +59,9 @@
     }.bind(this));
 
     this.webRTC = this.getWebRTC();
-    this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
+    // if(!this.watch) {
+      this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
+    // }
     this.webRTC.on('videoAdded', this.onVideoAdded.bind(this));
     this.webRTC.on('videoRemoved', this.onVideoRemoved.bind(this));
 
@@ -117,7 +119,8 @@
     var configs = {};
     configs.localVideoEl = (!this.watch) ? this.options.videoEl : null;
     configs.autoRequestMedia = !this.watch;
-    configs.detectSpeakingEvents = !this.watch;
+
+    configs.detectSpeakingEvents = true;
 
     return new SimpleWebRTC(configs);
   };
@@ -125,7 +128,8 @@
   Room.prototype.fbUpdateValue = function(data) {
     var val = data.val(),
       usersLength = 0;
-    if(!val)   {
+
+    if(!val.subject) {
       this.redirect();
     }
 
