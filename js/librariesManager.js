@@ -25,8 +25,9 @@
 
     event && event.preventDefault();
 
+    source = this.getLib();
+
     if (!this.options.watch && !_.isEmpty(source)) {
-      source = this.getLib();
       script = this.createScript(source);
       this.insert(script);
     }
