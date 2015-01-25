@@ -30,15 +30,24 @@
 
     this.countLog((this.watch) ? 'watch' : 'developer');
 
+    this.libManager = new LibrariesManager({
+      form: '#external-libraries',
+      editor: this.editor,
+      isWatch: this.watch
+    });
+
     if (!this.watch) {
-      this.libManager = new LibrariesManager({
-        form: '#external-libraries',
-        editor: this.editor
-      });
       new Config(this.editor, {
         el: '#configuration'
       });
     }
+    else {
+      this.hideButtons();
+    }
+  };
+
+  Room.prototype.hideButtons = function () {
+    $('[data-content-opener]').hide();
   };
 
   Room.prototype.countLog = function(type) {
