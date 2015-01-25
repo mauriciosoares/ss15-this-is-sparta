@@ -370,6 +370,7 @@ body.is-showcode .videos {
   cursor: pointer;
   color: rgb(116, 116, 116);
   font-size: 20px;
+  transition: 0.3s;
 }
 
 .editor-buttons a:active {
@@ -504,4 +505,8 @@ select {
 .rooms-loader {
   display: block;
   margin: 50px 0 50px 0;
+}
+
+.editor-buttons a:hover {
+  background-color: #354242;
 }
