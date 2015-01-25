@@ -500,3 +500,8 @@ select {
   text-align: center;
   padding: 10px 0;
 }
+
+.rooms-loader {
+  display: block;
+  margin: 50px 0 50px 0;
+}
