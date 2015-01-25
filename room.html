@@ -52,7 +52,7 @@
       width: 40%;
       height: 100%;
       background: white;
-      z-index: 1;
+      z-index: 16;
       transition: 0.3s;
     }
 
@@ -79,7 +79,7 @@
       text-align: left;
       padding-left: 12px;
       font-size: 23px;
-      z-index: 1;
+      z-index: 15;
       transition: .3s;
     }
 
@@ -91,14 +91,14 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      z-index: 2;
+      z-index: 20;
     }
 
     .closecode-bt {
       position: absolute;
       bottom: 0;
       right: 0;
-      z-index: 2;
+      z-index: 20;
     }
   </style>
 </head>
@@ -146,7 +146,7 @@
     (function() {
       new App.Room({
         videoEl: 'video-local',
-        conn: 'https://pairwith.firebaseio.com/rooms/',
+        conn: 'https://ss15-this-is-sparta.firebaseio.com/rooms/',
         runBt: '.run-code',
         sharedVideosEl: '.videos',
         editor: {
