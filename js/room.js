@@ -33,7 +33,8 @@
     this.libManager = new LibrariesManager({
       form: '#external-libraries',
       editor: this.editor,
-      isWatch: this.watch
+      isWatch: this.watch,
+      Room: this
     });
 
     if (!this.watch) {

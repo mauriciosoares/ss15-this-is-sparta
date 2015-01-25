@@ -35,6 +35,7 @@
 
   LibrariesManager.prototype.insert = function (script) {
     this.options.editor.insert(script);
+    this.options.Room.onAceKeyup();
   };
 
   LibrariesManager.prototype.getLib = function () {
