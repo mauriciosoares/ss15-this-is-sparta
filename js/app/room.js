@@ -102,16 +102,9 @@
 
   Room.prototype.getWebRTC = function() {
     var configs = {};
-    configs.localVideoEl = this.options.videoEl;
-    configs.autoRequestMedia = true;
-    configs.detectSpeakingEvents = true;
-    configs.media = {
-      video: !this.watch,
-      audio: !this.watch
-
-      // video: true,
-      // audio: true
-    };
+    configs.localVideoEl = (!this.watch) ? this.options.videoEl : null;
+    configs.autoRequestMedia = !this.watch;
+    configs.detectSpeakingEvents = !this.watch;
 
     return new SimpleWebRTC(configs);
   };
