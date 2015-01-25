@@ -17,11 +17,26 @@
     this.elements = {};
     this.elements.$rooms = $(this.options.roomsEl);
     this.elements.$form = $(this.options.formEl);
+    this.elements.$howItWorks = $(this.options.howItWorksBt);
+    this.elements.$howItWorksClose = $(this.options.howItWorksClose);
   };
 
   RoomManager.prototype.bind = function () {
     this.firebase.on('child_added', this.onAddRoom.bind(this));
     this.elements.$form.on('submit', this.onSubmit.bind(this));
+
+    this.elements.$howItWorks.on('click', this.hiwModal.bind(this));
+    this.elements.$howItWorksClose.on('click', this.hiwModalClose.bind(this));
+  };
+
+  RoomManager.prototype.hiwModal = function(e) {
+    e && e.preventDefault();
+
+    $('.md-modal').addClass('md-show');
+  };
+
+  RoomManager.prototype.hiwModalClose = function() {
+    $('.md-modal').removeClass('md-show');
   };
 
   RoomManager.prototype.getValue = function (name) {

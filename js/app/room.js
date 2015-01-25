@@ -59,9 +59,11 @@
     }.bind(this));
 
     this.webRTC = this.getWebRTC();
-    // if(!this.watch) {
+    if(this.watch) {
+      this.webRTC.joinRoom(this.room);
+    } else {
       this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
-    // }
+    }
     this.webRTC.on('videoAdded', this.onVideoAdded.bind(this));
     this.webRTC.on('videoRemoved', this.onVideoRemoved.bind(this));
 
@@ -117,7 +119,11 @@
 
   Room.prototype.getWebRTC = function() {
     var configs = {};
-    configs.localVideoEl = (!this.watch) ? this.options.videoEl : null;
+    configs.localVideoEl = this.options.videoEl;
+    if(this.watch) {
+      configs.remotesVideos = 'remote-videos';
+      $('#video-local').remove();
+    }
     configs.autoRequestMedia = !this.watch;
 
     configs.detectSpeakingEvents = true;
