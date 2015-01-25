@@ -42,7 +42,7 @@
   };
 
   LibrariesManager.prototype.createScript = function (source) {
-    return '<scri' + 'pt src="'+ source +'"> </scri' + 'pt>';
+    return '<scri' + 'pt src="'+ window.location.origin + source +'"> </scri' + 'pt>';
 
   };
 

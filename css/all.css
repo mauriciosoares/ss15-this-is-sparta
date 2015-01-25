@@ -415,7 +415,7 @@ body.is-showcode .videos {
   left: -100%;
   /* left: 40px; */
   z-index: 40;
-  background: rgb(81, 110, 110);
+  background: rgba(81, 110, 110, 0.9);
   top: 0;
   bottom: 0;
   width: 400px;
