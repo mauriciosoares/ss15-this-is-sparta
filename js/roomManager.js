@@ -77,7 +77,8 @@
       hasPassword: !!values.password,
       password: values.password,
       template: this.options.roomTemplate,
-      usersReference: this.getUserReference(subject.key()),
+      developersReference: this.getReference(subject.key(), 'users_developer'),
+      watchersReference: this.getReference(subject.key(), 'users_watch'),
       submit: subject
     });
 
@@ -86,8 +87,8 @@
 
   };
 
-  RoomManager.prototype.getUserReference = function (key) {
-    return this.firebase.child(key).child('users_developer');
+  RoomManager.prototype.getReference = function (key, reference) {
+    return this.firebase.child(key).child(reference);
   };
 
   RoomManager.prototype.getUsers = function (obj) {

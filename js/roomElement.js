@@ -22,8 +22,11 @@
   };
 
   RoomElement.prototype.bind = function () {
-    this.options.usersReference.on('child_added', this.onUserAdd.bind(this));
-    this.options.usersReference.on('child_removed', this.onUserRemoved.bind(this));
+    this.options.developersReference.on('child_added', this.onUserAdd.bind(this));
+    this.options.developersReference.on('child_removed', this.onUserRemoved.bind(this));
+
+    this.options.watchersReference.on('child_added', this.onUserAdd.bind(this));
+    this.options.watchersReference.on('child_removed', this.onUserRemoved.bind(this));
   };
 
   RoomElement.prototype.onUserAdd = function () {
