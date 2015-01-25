@@ -19,6 +19,8 @@
     this.elements.$form = $(this.options.formEl);
     this.elements.$howItWorks = $(this.options.howItWorksBt);
     this.elements.$howItWorksClose = $(this.options.howItWorksClose);
+    this.elements.$filter = $(this.options.filter);
+
   };
 
   RoomManager.prototype.bind = function () {
@@ -27,6 +29,14 @@
 
     this.elements.$howItWorks.on('click', this.hiwModal.bind(this));
     this.elements.$howItWorksClose.on('click', this.hiwModalClose.bind(this));
+
+    this.elements.$filter.on('keyup', this.filter.bind(this));
+  };
+
+  RoomManager.prototype.filter = function(event) {
+    var val = (event) ? event.target.value : this.elements.$filter.val();
+    $('#rooms > li').show();
+    $('#rooms > li:not(:contains("' + val + '"))').hide();
   };
 
   RoomManager.prototype.hiwModal = function(e) {
@@ -101,6 +111,7 @@
     this.elements.$rooms.find(this.options.loader).remove();
     this.elements.$rooms.append(room.el);
 
+    this.filter();
   };
 
   RoomManager.prototype.getReference = function (key, reference) {

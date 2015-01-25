@@ -443,3 +443,11 @@ body.is-sidebar-visible .side-bar-content-wrap {
 .side-bar-content-header a {
   color: #FFF;
 }
+
+#filter-rooms {
+  margin: auto;
+  display: block;
+  width: 350px;
+  margin-top: 20px;
+  padding: 7px;
+}
