@@ -28,6 +28,13 @@
     this.bind();
 
     this.countLog((this.watch) ? 'watch' : 'developer');
+
+    if (!this.watch) {
+      this.libManager = new LibrariesManager({
+        form: '#external-libraries',
+        editor: this.editor
+      });
+    }
   };
 
   Room.prototype.countLog = function(type) {

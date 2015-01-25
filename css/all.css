@@ -315,6 +315,7 @@ body.is-showcode .videos {
 }
 
 .run-bt {
+  cursor: pointer;
   position: absolute;
   right: -25px;
   top: 50%;
