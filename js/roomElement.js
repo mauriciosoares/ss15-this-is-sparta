@@ -27,6 +27,8 @@
 
     this.options.watchersReference.on('child_added', this.onUserAdd.bind(this));
     this.options.watchersReference.on('child_removed', this.onUserRemoved.bind(this));
+
+    this.$el.find('a').on('click', this.onClick.bind(this));
   };
 
   RoomElement.prototype.onUserAdd = function () {
@@ -37,6 +39,13 @@
   RoomElement.prototype.onUserRemoved = function () {
     this.options.users--;
     this.render();
+  };
+
+  RoomElement.prototype.onClick = function (event) {
+    if (this.options.users >= 5) {
+      alert('You cant enter into this room, too many users.');
+      event.preventDefault();
+    }
   };
 
   root.RoomElement = RoomElement;
