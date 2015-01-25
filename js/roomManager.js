@@ -71,12 +71,6 @@
         room,
         users;
 
-    users = this.getUsers(values.users_developer) + this.getUsers(values.users_watch);
-
-    // this.firebase.chid(subject.key()).child('users_developer').on('child_added', function () {
-    //   console.log('on room add');
-    // });
-
     room = new RoomElement({
       key: subject.key(),
       subject: values.subject,
@@ -84,8 +78,7 @@
       password: values.password,
       template: this.options.roomTemplate,
       usersReference: this.getUserReference(subject.key()),
-      submit: subject,
-      users: users
+      submit: subject
     });
 
     this.elements.$rooms.find(this.options.loader).remove();
