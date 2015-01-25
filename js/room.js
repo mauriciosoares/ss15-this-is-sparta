@@ -28,6 +28,12 @@
     this.bind();
 
     this.countLog((this.watch) ? 'watch' : 'developer');
+
+    if(!this.watch) {
+      new Config(this.editor, {
+        el: '#configuration'
+      });
+    }
   };
 
   Room.prototype.countLog = function(type) {
