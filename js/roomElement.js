@@ -14,7 +14,6 @@
     this.template = _.template($(this.options.template).html());
     this.$el = $('<li />');
     this.el = this.$el[0];
-    this.users = 0;
     this.render();
   };
 
