@@ -79,6 +79,7 @@
       template: this.options.roomTemplate,
       developersReference: this.getReference(subject.key(), 'users_developer'),
       watchersReference: this.getReference(subject.key(), 'users_watch'),
+      userLimit: 5,
       submit: subject
     });
 
