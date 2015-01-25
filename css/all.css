@@ -137,3 +137,7 @@ body {
 .text-center {
   text-align: center;
 }
+
+.footer {
+  padding: 10px 0 0 0;
+}
