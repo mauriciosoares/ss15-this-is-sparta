@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.l-header, .l-content, .l-form {
+.l-header, .l-content, .l-form, .l-footer {
   margin: 0 auto;
   width: 960px;
   overflow: hidden;
@@ -12,6 +12,23 @@ body {
   background: #C9DE55;
   color: #354242;
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.l-footer-container {
+  background: #354242;
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 12px 0 40px 0;
+  font-size: 13px;
+  text-align: right;
+}
+
+.l-footer-container i {
+  color: #C9DE55;
+}
+
+.l-footer-container a {
+  color: #fff;
 }
 
 .l-form-container {
