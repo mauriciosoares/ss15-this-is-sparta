@@ -19,6 +19,11 @@
 
   RoomElement.prototype.render = function () {
     this.$el.html(this.template(this.options));
+
+    this.$el.find('.tooltip-top').tooltipster({
+      theme: 'tooltipster-light',
+      position: 'top'
+    });
   };
 
   RoomElement.prototype.bind = function () {
