@@ -6,12 +6,14 @@
   <link href='//fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="bower_components/tooltipster/css/tooltipster.css">
+  <link rel="stylesheet" href="bower_components/tooltipster/css/themes/tooltipster-light.css">
 </head>
 <body>
   <div class="side-bar">
     <ul class="clear-list">
-      <li><a href="#" data-content-opener="external-libraries"><i class="fa fa-cubes"></i></a></li>
-      <li><a href="#" data-content-opener="configs"><i class="fa fa-gear"></i></a></li>
+      <li><a class="tooltip-right" title="External libraries" href="#" data-content-opener="external-libraries"><i class="fa fa-cubes"></i></a></li>
+      <li><a class="tooltip-right" title="Configurations" href="#" data-content-opener="configs"><i class="fa fa-gear"></i></a></li>
     </ul>
   </div>
 
@@ -53,7 +55,7 @@
     </div>
   </div>
 
-  <button class="run-bt show-code" title="See Code">
+  <button class="run-bt show-code tooltip-left" title="See Code" >
     {
   </button>
 
@@ -75,6 +77,7 @@
   <!-- load local libs -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/tooltipster/js/jquery.tooltipster.js"></script>
   <script src="js/lib/simpleWebRTC.js"></script>
 
   <!-- load ace -->
@@ -82,9 +85,6 @@
   <!-- load ace themelist extension -->
   <script src="js/lib/ext-themelist.js"></script>
   <script src="js/lib/ext-emmet.js"></script>
-
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
   <script>
     var App = {};
@@ -121,6 +121,17 @@
           }
         }
       });
+
+      $('.tooltip-right').tooltipster({
+        theme: 'tooltipster-light',
+        position: 'right'
+      });
+
+      $('.tooltip-left').tooltipster({
+        theme: 'tooltipster-light',
+        position: 'left'
+      });
+
     } ());
   </script>
 </body>

@@ -1,5 +1,10 @@
 ;(function (root, $) {
 
+  jQuery.expr[':'].icontains = function(a, i, m) {
+    return jQuery(a).text().toUpperCase()
+    .indexOf(m[3].toUpperCase()) >= 0;
+  };
+
   var defaults = {
 
   };
@@ -35,8 +40,10 @@
 
   RoomManager.prototype.filter = function(event) {
     var val = (event) ? event.target.value : this.elements.$filter.val();
+    val = val.toLowerCase();
+
     $('#rooms > li').show();
-    $('#rooms > li:not(:contains("' + val + '"))').hide();
+    $('#rooms > li:not(:icontains("' + val + '"))').hide();
   };
 
   RoomManager.prototype.hiwModal = function(e) {

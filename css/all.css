@@ -487,3 +487,7 @@ select {
   position: relative;
   margin: 0 10px;
 }
+
+.tooltipster-base * {
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
