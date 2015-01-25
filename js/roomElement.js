@@ -42,7 +42,7 @@
   };
 
   RoomElement.prototype.onClick = function (event) {
-    if (this.options.users >= this.options.userLimit) {
+    if (this.options.users > this.options.userLimit) {
       alert('You cant enter into this room, too many users.');
       event.preventDefault();
     }
