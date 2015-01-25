@@ -28,7 +28,7 @@
     this.options.watchersReference.on('child_added', this.onUserAdd.bind(this));
     this.options.watchersReference.on('child_removed', this.onUserRemoved.bind(this));
 
-    this.$el.find('a').on('click', this.onClick.bind(this));
+    this.$el.find('a').not('.watch').on('click', this.onClick.bind(this));
   };
 
   RoomElement.prototype.onUserAdd = function () {
