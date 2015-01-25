@@ -6,6 +6,17 @@
   <link href='//fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+
+  <style>
+    .watchers {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
 </head>
 <body>
   <div class="side-bar">
@@ -13,6 +24,12 @@
       <li><a href="#" data-content-opener="external-libraries"><i class="fa fa-cubes"></i></a></li>
       <li><a href="#" data-content-opener="configs"><i class="fa fa-gear"></i></a></li>
     </ul>
+    <div class="watchers">
+      <i class="fa fa-eye"></i>
+      <div class="watchers-n" id="watchers-n">
+        0
+      </div>
+    </div>
   </div>
 
   <div class="side-bar-content-wrap">
@@ -180,6 +197,7 @@
         runBt: '.run-code',
         sharedVideosEl: '.videos',
         usersLimit: 5,
+        watchersN: '#watchers-n',
         editor: {
           el: 'editor',
           theme: 'ace/theme/monokai',
