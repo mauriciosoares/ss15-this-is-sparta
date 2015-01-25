@@ -44,6 +44,19 @@
 
   Room.prototype.bind = function() {
     this.fb.on('value', this.fbUpdateValue.bind(this));
+    this.fb.once('value', function(data) {
+      var val = data.val(), usersLength = 0;
+      if(val.users_developer) {
+        for(var index in val.users_developer) {
+          usersLength++;
+        }
+      }
+
+      if(usersLength > this.options.usersLimit) {
+        alert('You cant enter into this room, too many uers.');
+        this.redirect();
+      }
+    }.bind(this));
 
     this.webRTC = this.getWebRTC();
     this.webRTC.on('readyToCall', this.onReadyToCall.bind(this));
@@ -110,7 +123,8 @@
   };
 
   Room.prototype.fbUpdateValue = function(data) {
-    var val = data.val();
+    var val = data.val(),
+      usersLength = 0;
     if(!val)   {
       this.redirect();
     }
