@@ -65,6 +65,7 @@
   Room.prototype.bind = function() {
     this.fb.on('value', this.fbUpdateValue.bind(this));
     this.fb.once('value', this.devLengthCheck.bind(this));
+    this.fb.once('value', this.checkPassword.bind(this));
 
     this.fbWatchers.on('value', this.watchLength.bind(this));
 
@@ -173,6 +174,12 @@
       this.redirect();
     }
 
+    this.editor.setValue(val.code);
+    this.editor.gotoLine(this.position.row + 1 || 1, this.position.column || 0);
+  };
+
+  Room.prototype.checkPassword = function(data) {
+    var val = data.val(), password;
     if(val.password) {
       var password = prompt('This room requires password:', 'Insert the password here');
     }
@@ -181,9 +188,6 @@
       alert('Sorry, wrong password, you\'ll be redirected to the Rooms list');
       this.redirect();
     }
-
-    this.editor.setValue(val.code);
-    this.editor.gotoLine(this.position.row + 1 || 1, this.position.column || 0);
   };
 
   Room.prototype.onAceKeyup = function() {
