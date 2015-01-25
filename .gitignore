@@ -49,3 +49,4 @@ npm-debug.log
 # .bower-tmp
 
 .divshot-cache/
+.DS_Store

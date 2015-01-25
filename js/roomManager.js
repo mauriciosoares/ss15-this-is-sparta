@@ -68,14 +68,20 @@
 
   RoomManager.prototype.onAddRoom = function (subject) {
     var values = subject.val(),
-        room;
+        room,
+        users;
+
+    users = this.getUsers(values.users_developer) + this.getUsers(values.users_watch);
 
     room = new RoomElement({
+      key: subject.key(),
       subject: values.subject,
       hasPassword: !!values.password,
       password: values.password,
       template: this.options.roomTemplate,
-      usersReference: this.getUserReference(subject.key())
+      usersReference: this.getUserReference(subject.key()),
+      submit: subject,
+      users: users
     });
 
     this.elements.$rooms.find(this.options.loader).remove();
@@ -84,9 +90,15 @@
   };
 
   RoomManager.prototype.getUserReference = function (key) {
+    return this.firebase.child(key).child('users');
+  };
+
+  RoomManager.prototype.getUsers = function (obj) {
     try {
-      return this.firebase.child(key).child('users');
-    } catch (e) {}
+      return Object.keys(obj).length;
+    } catch (e) {
+      return 0;
+    }
   };
 
   root.RoomManager = RoomManager;

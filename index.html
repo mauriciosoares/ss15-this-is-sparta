@@ -50,8 +50,6 @@
         <a target="_blank" href="http://github.com/alanuhu">@alanuhu</a> 
         <a target="_blank" href="http://github.com/mauriciosoares">@mauriciosoares</a> 
         <a target="_blank" href="http://github.com/weslleyaraujo">@weslleyaraujo</a> 
-
-      </div>
     </div>
   </div>
 
@@ -61,7 +59,7 @@
 
   <script id="room-element" type="text/template">
     <div class="room-name">
-      <a href="#">
+      <a href="room.html?<%= key %>">
         <%= subject %>
       </a>
     </div>
@@ -92,14 +90,13 @@
       new RoomManager({
         roomsEl: '#rooms',
         formEl: '#create',
-        connection: 'https://ss15-this-is-sparta.firebaseio.com/',
+        connection: 'https://ss15-this-is-sparta.firebaseio.com/rooms/',
         reference: 'rooms',
         loader: '.rooms-loader',
         roomTemplate: '#room-element'
       });
     }())
-  
-  </script>
 
+  </script>
 </body>
 </html>
