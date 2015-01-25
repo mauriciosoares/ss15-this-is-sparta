@@ -16,6 +16,7 @@
   Room.prototype.prepare = function() {
     this.room = this.getRoom();
     this.fb = new Firebase(this.options.conn + this.room);
+    this.fbWatchers = this.fb.child('users_watch')
 
     this.sharedVideosEl = document.querySelector(this.options.sharedVideosEl);
     this.runBt = $(this.options.runBt);
@@ -34,6 +35,9 @@
         form: '#external-libraries',
         editor: this.editor
       });
+      new Config(this.editor, {
+        el: '#configuration'
+      });
     }
   };
 
@@ -51,19 +55,9 @@
 
   Room.prototype.bind = function() {
     this.fb.on('value', this.fbUpdateValue.bind(this));
-    this.fb.once('value', function(data) {
-      var val = data.val(), usersLength = 0;
-      if(val.users_developer) {
-        for(var index in val.users_developer) {
-          usersLength++;
-        }
-      }
+    this.fb.once('value', this.devLengthCheck.bind(this));
 
-      if(usersLength > this.options.usersLimit) {
-        alert('You cant enter into this room, too many uers.');
-        this.redirect();
-      }
-    }.bind(this));
+    this.fbWatchers.on('value', this.watchLength.bind(this));
 
     this.webRTC = this.getWebRTC();
     if(this.watch) {
@@ -79,6 +73,30 @@
     this.runBt.on('click', this.updateIframe.bind(this));
     this.showCodeBt.on('click', this.showCode.bind(this));
     this.closeCodeBt.on('click', this.closeCode.bind(this));
+  };
+
+  Room.prototype.devLengthCheck = function(data) {
+    var val = data.val(), usersLength = 0;
+    if(val.users_developer) {
+      for(var index in val.users_developer) {
+        usersLength++;
+      }
+    }
+
+    if(usersLength > this.options.usersLimit) {
+      alert('This room is full, you can enter in watch mode.');
+      this.redirect();
+    }
+  }
+
+  Room.prototype.watchLength = function(data) {
+    var val = data.val(), usersLength = 0;
+
+    for(var index in val) {
+      usersLength++;
+    }
+
+    $(this.options.watchersN).html(usersLength);
   };
 
   Room.prototype.updateIframe = function() {
