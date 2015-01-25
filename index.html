@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/all.css">
+  <link rel="stylesheet" href="bower_components/tooltipster/css/tooltipster.css">
+  <link rel="stylesheet" href="bower_components/tooltipster/css/themes/tooltipster-light.css">
 </head>
 
 <body>
@@ -92,6 +94,7 @@
 
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/tooltipster/js/jquery.tooltipster.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
 
   <script id="room-element" type="text/template">
@@ -106,11 +109,11 @@
           <li class="inline-block"><i class="fa fa-lock" title="Password required"></i></span></li>
         <% } %>
         <li class="inline-block">
-          <a href="room.html?<%= key %>"><i class="fa fa-code" title="Enter room as a developer"></i></a>
+          <a href="room.html?<%= key %>" class="tooltip-top" title="Enter room as a developer"><i class="fa fa-code"></i></a>
         </li>
         <li class="inline-block">
-          <a href="room.html?<%= key %>===watch" class="watch">
-            <i class="fa fa-eye" title="Watch room"></i>
+          <a href="room.html?<%= key %>===watch" class="watch tooltip-top" title="Watch Room">
+            <i class="fa fa-eye"></i>
           </a>
         </li>
         <li class="inline-block"><i class="fa fa-user"></i><span class="logged-users"> <%= users %></span> </li>
@@ -135,7 +138,7 @@
         howItWorksClose: '.md-close',
         filter: '#filter-rooms'
       });
-    }())
+    }());
 
   </script>
 </body>
