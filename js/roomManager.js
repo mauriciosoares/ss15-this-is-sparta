@@ -73,6 +73,10 @@
 
     users = this.getUsers(values.users_developer) + this.getUsers(values.users_watch);
 
+    // this.firebase.chid(subject.key()).child('users_developer').on('child_added', function () {
+    //   console.log('on room add');
+    // });
+
     room = new RoomElement({
       key: subject.key(),
       subject: values.subject,
@@ -90,7 +94,7 @@
   };
 
   RoomManager.prototype.getUserReference = function (key) {
-    return this.firebase.child(key).child('users');
+    return this.firebase.child(key).child('users_developer');
   };
 
   RoomManager.prototype.getUsers = function (obj) {

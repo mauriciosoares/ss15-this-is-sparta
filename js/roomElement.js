@@ -29,12 +29,12 @@
 
   RoomElement.prototype.onUserAdd = function () {
     this.options.users++;
-    console.log('user add on room');
+    this.render();
   };
 
   RoomElement.prototype.onUserRemoved = function () {
     this.options.users--;
-    console.log('user removed from the room');
+    this.render();
   };
 
   root.RoomElement = RoomElement;
