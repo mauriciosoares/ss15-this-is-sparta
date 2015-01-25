@@ -452,3 +452,38 @@ body.is-sidebar-visible .side-bar-content-wrap {
   margin-top: 20px;
   padding: 7px;
 }
+
+select {
+  position: relative;
+  padding: 5px 20px;
+  -webkit-appearance: none;
+  border: 1px solid rgb(105, 118, 118);
+  border-radius: 2px;
+  font-size: 12px;
+  text-align: left;
+  width: 170px;
+}
+
+.select-hold {
+  position: relative;
+  display: inline-block;
+}
+
+.select-hold i {
+  color: #000;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 10px;
+  z-index: 0;
+}
+
+.button-add {
+  background-color: #354242;
+  border: none;
+  color: #FFF;
+  padding: 7px 13px;
+  cursor: pointer;
+  position: relative;
+  margin: 0 10px;
+}
