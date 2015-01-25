@@ -36,6 +36,9 @@
       <div class="l-content">
 
         <ul id="rooms" class="rooms">
+          <div class="text-center rooms-loader">
+            <img src="images/preloader.gif" alt="">
+          </div>
         </ul>
 
       </div>
@@ -56,10 +59,17 @@
     <div class="room-users">
       <ul class="clear-list room-users-list">
         <% if (hasPassword) { %>
-          <li class="inline-block"><i class="fa fa-lock"></i></span> </li>
+          <li class="inline-block"><i class="fa fa-lock" title="Password required"></i></span></li>
         <% } %>
-        <li class="inline-block"><i class="fa fa-eye"></i></li>
-        <li class="inline-block"><i class="fa fa-user"></i> <span class="logged-users"><%= users %></span> </li>
+        <li class="inline-block">
+          <a href="#"><i class="fa fa-code" title="Enter room as a developer"></i></a>
+        </li>
+        <li class="inline-block">
+          <a href="#">
+            <i class="fa fa-eye" title="Watch room"></i>
+          </a>
+        </li>
+        <li class="inline-block"><i class="fa fa-user"></i><span class="logged-users"> <%= users %></span> </li>
       </ul>
     </div>
 
@@ -74,7 +84,9 @@
         roomsEl: '#rooms',
         formEl: '#create',
         connection: 'https://ss15-this-is-sparta.firebaseio.com/',
-        reference: 'rooms'
+        reference: 'rooms',
+        loader: '.rooms-loader',
+        roomTemplate: '#room-element'
       });
     }())
   

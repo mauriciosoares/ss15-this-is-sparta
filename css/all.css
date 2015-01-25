@@ -71,6 +71,10 @@ body {
   overflow: hidden;
 }
 
+.rooms > li a {
+  color: #354242;
+}
+
 .room-users {
   position: absolute;
   right: 16px;
@@ -102,7 +106,7 @@ body {
 }
 
 .room-users-list li {
-  margin: 0 5px;
+  margin: 0 3px;
 }
 
 .clear-list {
@@ -111,4 +115,8 @@ body {
 
 .inline-block {
   display: inline-block;
+}
+
+.text-center {
+  text-align: center;
 }

@@ -74,10 +74,11 @@
       subject: values.subject,
       hasPassword: !!values.password,
       password: values.password,
-      template: '#room-element',
+      template: this.options.roomTemplate,
       usersReference: this.getUserReference(subject.key())
     });
 
+    this.elements.$rooms.find(this.options.loader).remove();
     this.elements.$rooms.append(room.el);
 
   };
