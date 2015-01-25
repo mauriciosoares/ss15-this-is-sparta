@@ -3,133 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Pear Programming</title>
-
-  <style>
-    body.is-showcode #run {
-      right: 0%;
-    }
-
-    body.is-showcode .videos {
-      right: 42%;
-    }
-    .videos {
-      position: fixed;
-      top: 20px;
-      right: 2%;
-      z-index: 1;
-      transition: .3s;
-    }
-
-    .videos-video {
-      overflow: hidden;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 20px;
-    }
-
-    .videos-video video {
-      height: 100px;
-      margin-left: -17px;
-    }
-
-    #editor {
-      margin: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-
-    #run {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 40%;
-      height: 100%;
-      background: white;
-      z-index: 16;
-      transition: 0.3s;
-    }
-
-    #run iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 50px);
-      border: 0;
-    }
-
-    .run-bt {
-      position: absolute;
-      right: -25px;
-      top: 50%;
-      width: 50px;
-      height: 50px;
-      display: block;
-      background-color: transparent;
-      border: none;
-      background: white;
-      border-radius: 50% 0 0 50%;
-      text-align: left;
-      padding-left: 12px;
-      font-size: 23px;
-      z-index: 15;
-      transition: .3s;
-    }
-
-    .run-bt:active {
-      opacity: 0.7;
-    }
-
-    .reload-bt {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 20;
-    }
-
-    .closecode-bt {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 20;
-    }
-
-    .editor-buttons {
-      background: rgb(39, 40, 34);
-      overflow: hidden;
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-      height: 50px;
-      z-index: 20;
-      overflow: hidden;
-    }
-
-    .editor-buttons a {
-      float: left;
-      width: 50%;
-      padding: 14px 0;
-      text-align: center;
-      cursor: pointer;
-      color: rgb(116, 116, 116);
-      font-size: 20px;
-    }
-
-    .editor-buttons a:active {
-      opacity: 0.5;
-    }
-  </style>
-
+  <link href='//fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
 </head>
 <body>
+  <div class="side-bar">
+    <ul class="clear-list">
+      <li><a href="#" data-content-opener="external-libraries"><i class="fa fa-cubes"></i></a></li>
+      <li><a href="#" data-content-opener="configs"><i class="fa fa-gear"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="side-bar-content-wrap">
+    <div class="side-bar-content-header">
+      <div class="text-right"><a href="javascript:void(0);" class="side-bar-content-close"><div class="fa fa-close"></div></a></div>
+    </div>
+    <div class="side-bar-content" data-content="external-libraries">
+      lorem ipsum
+    </div>
+
+    <div class="side-bar-content" data-content="configs">
+      Configuration
+    </div>
+  </div>
+
   <div id="editor"></div>
   <div class="videos">
     <div class="videos-video" id="video-main">
@@ -173,10 +71,18 @@
   <script>
     var App = {};
   </script>
-  <script src="js/app/room.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/room.js"></script>
 
   <script>
     (function() {
+      new Sidebar ({
+        openers: '[data-content-opener]',
+        content: '.side-bar-content-wrap',
+        visibleClass: 'is-sidebar-visible',
+        close: '.side-bar-content-close'
+      });
+
       new App.Room({
         videoEl: 'video-local',
         conn: 'https://ss15-this-is-sparta.firebaseio.com/rooms/',
