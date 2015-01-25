@@ -100,7 +100,30 @@
       right: 0;
       z-index: 20;
     }
+
+    .editor-buttons {
+      background: rgb(39, 40, 34);
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 30px;
+      z-index: 20;
+      border-left: 1px solid #646464;
+    }
+
+    .editor-buttons a {
+      width: 50%;
+      text-align: center;
+      padding: 12px 0 4px 0;
+      background-color: #354242;
+      color: #749999;
+      border-left: 1px solid #FFF;
+      cursor: pointer;
+    }
   </style>
+
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
 </head>
 <body>
   <div id="editor"></div>
@@ -115,8 +138,14 @@
   </button>
 
   <div id="run">
-    <button class="reload-bt run-code" title="Reload Code">{ }</button>
-    <button class="closecode-bt" title="Close">✖</button>
+    <div class="editor-buttons">
+      <a href="javascript:void(0);" class="reload-bt run-code" title="Reload Code">
+        <i class="fa fa-refresh"></i>
+      </a>
+      <a class="closecode-bt" title="Close">
+        <i class="fa fa-close"></i>
+      </a>
+    </div>
   </div>
 
   <!-- load external libs -->
