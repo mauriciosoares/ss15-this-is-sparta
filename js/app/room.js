@@ -122,7 +122,7 @@
     configs.localVideoEl = this.options.videoEl;
     if(this.watch) {
       configs.remotesVideos = 'remote-videos';
-      $('#video-local').remove();
+      $('#video-main').remove();
     }
     configs.autoRequestMedia = !this.watch;
 
