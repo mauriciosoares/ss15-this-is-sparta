@@ -151,7 +151,11 @@
     editor.setOptions(this.options.editor.options);
     editor.$blockScrolling = this.options.editor.$blockScrolling;
     editor.setShowPrintMargin(false);
+    if(this.watch) {
+      editor.setReadOnly(true)
+    }
 
+    ed = editor;
     this.editor = editor;
   };
 
