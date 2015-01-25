@@ -246,3 +246,11 @@ body {
   border: none;
   font-size: 26px;
 }
+
+#filter-rooms {
+  margin: auto;
+  display: block;
+  width: 350px;
+  margin-top: 20px;
+  padding: 7px;
+}

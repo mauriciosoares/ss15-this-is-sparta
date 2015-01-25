@@ -36,6 +36,7 @@
 
     <div class="l-content-container">
       <div class="l-content">
+        <input type="text" id="filter-rooms" placeholder="Filter rooms (optional)">
         <ul id="rooms" class="rooms">
           <div class="text-center rooms-loader">
             <img src="images/preloader.gif" alt="">
@@ -131,7 +132,8 @@
         loader: '.rooms-loader',
         roomTemplate: '#room-element',
         howItWorksBt: '#how-it-works',
-        howItWorksClose: '.md-close'
+        howItWorksClose: '.md-close',
+        filter: '#filter-rooms'
       });
     }())
 
