@@ -74,7 +74,8 @@
   RoomManager.prototype.creteRoom = function (data) {
     return this.firebase.push({
       subject: data.subject,
-      password: data.password
+      password: data.password,
+      code: data.code
     });
   };
 
@@ -88,7 +89,8 @@
     if (!_.isUndefined(subject)) {
       response = this.creteRoom({
         subject: subject,
-        password: password
+        password: password,
+        code: "<!doctype html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Pear Programming</title>\n    <style>\n        body {\n            background: green;\n            color: white;\n        }\n    </style>\n</head>\n<body>\n    This is Pear Programming! Start coding and have fun :D\n</body>\n</html>"
       });
 
       this.goToRoom(response.key());
