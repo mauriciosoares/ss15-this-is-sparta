@@ -27,6 +27,19 @@
 
     this.bind();
 
+    this.countLog((this.watch) ? 'watch' : 'developer');
+  };
+
+  Room.prototype.countLog = function(type) {
+    var users = this.fb.child('users_' + type),
+      // name = prompt('Your name/nickname?', 'An Amazing Coder') || (+new Date());
+      name = (+new Date());
+
+    var user = users.push({
+      user: name
+    });
+
+    user.onDisconnect().remove();
   };
 
   Room.prototype.bind = function() {

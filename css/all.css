@@ -12,6 +12,18 @@ body {
   background: #C9DE55;
   color: #354242;
   font-family: 'Open Sans Condensed', sans-serif;
+  position: relative;
+}
+
+.l-header-container img {
+  position: absolute;
+  top: 7px;
+}
+
+.l-header-container h1 {
+  display: inline-block;
+  margin-left: 62px;
+  font-size: 30px;
 }
 
 .l-footer-container {
