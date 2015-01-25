@@ -106,7 +106,7 @@
     <div class="room-users">
       <ul class="clear-list room-users-list">
         <% if (hasPassword) { %>
-          <li class="inline-block"><i class="fa fa-lock" title="Password required"></i></span></li>
+          <li class="inline-block tooltip-top" title="This room requires a password to enter"><i class="fa fa-lock" title="Password required"></i></span></li>
         <% } %>
         <li class="inline-block">
           <a href="room.html?<%= key %>" class="tooltip-top" title="Enter room as a developer"><i class="fa fa-code"></i></a>
