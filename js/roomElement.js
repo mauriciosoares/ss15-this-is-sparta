@@ -18,6 +18,8 @@
   };
 
   RoomElement.prototype.render = function () {
+    // HTML escape the subject before it is posted to the main page
+    this.options.subject = $('<div/>').text(this.options.subject).html();
     this.$el.html(this.template(this.options));
 
     this.$el.find('.tooltip-top').tooltipster({
